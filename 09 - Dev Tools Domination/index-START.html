@@ -18,28 +18,55 @@
     }
 
     // Regular
+    console.log('hello');
 
     // Interpolated
-
+    console.log('hello %s', dogs[0].name);
+    console.log(`hello ${dogs[1].name}`);
     // Styled
+    console.log(`%c ${dogs[1].name}`, 'color: seagreen; font-size: 2em; background: #eee');
 
     // warning!
+    console.warn('warning: test');
 
     // Error :|
+    console.error('error: test');
 
     // Info
+    console.info('info: test');
 
     // Testing
+    console.assert(1 === '1', "1 !== '1'");
+    console.assert(1 == '1', "1 != '1'");
 
     // clearing
+    console.clear();
 
     // Viewing DOM Elements
+    console.dir(document.querySelector('p'));
 
     // Grouping together
+    console.groupCollapsed('My group');
+    console.log(`${dogs[0].name}`);
+    console.log(`${dogs[1].name}`);
+    console.assert(dogs[0] === dogs[1], dogs[0] !== dogs[1]);
+    console.groupEnd('My group');
 
     // counting
+    console.groupCollapsed('count');
+    for (let i=0; i<10; i++) {
+        console.count(dogs[i % 2].name);
+    }
+    console.groupEnd('count');
 
     // timing
+    console.groupCollapsed('timer');
+    console.time('timer');
+      setTimeout(function () {
+        console.log('timer timeout');
+        console.timeEnd('timer');
+        console.groupEnd('timer');
+      }, 1000);
 
   </script>
 </body>
